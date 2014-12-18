@@ -11,12 +11,22 @@ public class Character {
 
 		this.name = name;
 		this.hp = hp;
-		this.dex = dex;
+		setDex(dex);
 		this.wpn = new Weapon(wpn);
-		this.strenght = strenght;
-		this.speed = speed;
+		setStrenght(strenght);
+		setSpeed(speed);
 	}
 
+	public Character(String name, double hp, double dex, 
+			double strenght, double speed) {
+
+		this.name = name;
+		this.hp = hp;
+		setDex(dex);
+		this.wpn = new Weapon();
+		setStrenght(strenght);
+		setSpeed(speed);
+	}
 	/**
 	 * equals metoda.
 	 * 
@@ -35,4 +45,71 @@ public class Character {
 		String out = "Name: " +name +"\nHP: " +hp +"\nDex: " +dex   + "\nStrenght: " +this.strenght + "\nSpeed: " + speed+ "\nWeapon: " + wpn.toString();
 		return out;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getHp() {
+		return hp;
+	}
+
+	public void setHp(double hp) {
+		if(hp>200)
+			throw new IllegalArgumentException("HP nije validan");
+		this.hp = hp;
+	}
+
+	public double getDex() {
+		return dex;
+	}
+
+	public void setDex(double dex) {
+		if (dex<0 || dex>1)
+			throw new IllegalArgumentException("dex mora biti izmedju 0 i 1");
+		this.dex = dex;
+	}
+
+	public Weapon getWpn() {
+		return wpn;
+	}
+
+	public void setWpn(Weapon wpn) {
+		this.wpn = wpn;
+	}
+
+	public double getStrenght() {
+		return strenght;
+	}
+
+	public void setStrenght(double strenght) {
+		if (strenght<0 || strenght>10)
+			throw new IllegalArgumentException("strenght mora biti izmedju 0 i 10");
+		this.strenght = strenght;
+	}
+
+	public double getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(double speed) {
+		if(speed<0 || speed >20)
+			throw new IllegalArgumentException("Speed mora biti izmedju 0 i 20");
+		this.speed = speed;
+	}
+	public double attack(){
+		if(dex<0.5)
+			return dex*Math.random()*strenght;
+		return dex*(strenght);
+		
+	}
+	public double specialAttack(){
+		return 0;
+	}
+	
+	
 }

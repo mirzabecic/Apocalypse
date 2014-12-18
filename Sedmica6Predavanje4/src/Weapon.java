@@ -23,8 +23,7 @@ public Weapon(Weapon other){
 }
 
 public String toString(){
-	String weaponToString="";
-	weaponToString="\n\tSteta: "+damage+"\n\tCritical:"+crit+"\n\tMunicija: "+ammo;
+	String weaponToString="\n\tSteta: "+damage+"\n\tCritical:"+crit+"\n\tMunicija: "+ammo;
 	return weaponToString;
 }
 
